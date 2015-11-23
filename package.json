@@ -1,0 +1,15 @@
+{
+  "name": "juttle-redis-backend",
+  "version": "1.0.0",
+  "description": "A plugin enabling Juttle computations on values stored in Redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "juttle",
+    "redis"
+  ],
+  "author": "Dave Galbraith",
+  "license": "ISC"
+}
