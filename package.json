@@ -11,5 +11,13 @@
     "redis"
   ],
   "author": "Dave Galbraith",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "bluebird-retry": "^0.5.2",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "redis-fast-driver": "^0.1.2",
+    "underscore": "^1.8.3"
+  }
 }
