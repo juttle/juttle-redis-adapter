@@ -1,5 +1,5 @@
 {
-  "name": "juttle-redis-backend",
+  "name": "juttle-redis-adapter",
   "version": "1.0.0",
   "description": "A plugin enabling Juttle computations on values stored in Redis",
   "main": "index.js",
