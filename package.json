@@ -1,23 +1,32 @@
 {
   "name": "juttle-redis-adapter",
-  "version": "1.0.0",
-  "description": "A plugin enabling Juttle computations on values stored in Redis",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Juttle adapter for Redis",
+  "main": "lib/index.js",
+  "repository": "juttle/juttle-redis-adapter",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "jshint": "jshint **/*.js",
+    "style": "jscs **/*.js",
+    "lint": "npm run jshint & npm run style"
   },
   "keywords": [
     "juttle",
     "redis"
   ],
   "author": "Dave Galbraith",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "bluebird": "^2.9.34",
     "bluebird-retry": "^0.5.2",
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "redis-fast-driver": "^0.1.2",
+    "redis-fast-driver": "^1.0.0",
     "underscore": "^1.8.3"
+  },
+  "peerDependencies": {
+    "juttle": "^0.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
   }
 }
