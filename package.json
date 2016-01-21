@@ -22,8 +22,8 @@
     "redis-fast-driver": "^1.0.0",
     "underscore": "^1.8.3"
   },
-  "peerDependencies": {
-    "juttle": "^0.1.0"
+ "peerDependencies": {
+    "juttle": ">=0.3.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
