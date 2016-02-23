@@ -18,10 +18,9 @@ services:
     - redis-server
 
 before_script:
-    - npm install juttle@^0.3.0
-    - npm install -g jshint
-    - npm install -g jscs
+    - npm install juttle@^0.4.0
+    - npm install -g eslint
 
 script:
-    - npm run -s lint
     - npm test
+    - npm run -s check-coverage

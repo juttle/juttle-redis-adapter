@@ -5,10 +5,8 @@
   "main": "lib/index.js",
   "repository": "juttle/juttle-redis-adapter",
   "scripts": {
-    "test": "mocha",
-    "jshint": "jshint **/*.js",
-    "style": "jscs **/*.js",
-    "lint": "npm run jshint & npm run style"
+    "test": "eslint **/*.js && node_modules/.bin/istanbul cover node_modules/.bin/_mocha",
+    "check-coverage": "node_modules/.bin/istanbul check-coverage"
   },
   "keywords": [
     "juttle",
@@ -22,11 +20,12 @@
     "redis-fast-driver": "^1.0.0",
     "underscore": "^1.8.3"
   },
- "peerDependencies": {
+  "peerDependencies": {
     "juttle": ">=0.3.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "istanbul": "^0.4.2",
     "mocha": "^2.3.4"
   }
 }
