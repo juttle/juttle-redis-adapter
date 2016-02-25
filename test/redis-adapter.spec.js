@@ -1,29 +1,17 @@
 var _ = require('underscore');
 var Promise = require('bluebird');
-var retry = require('bluebird-retry');
 var expect = require('chai').expect;
 var util = require('util');
-
-var juttle_test_utils = require('juttle/test/runtime/specs/juttle-test-utils');
+var juttle_test_utils = require('juttle/test').utils;
 var check_juttle = juttle_test_utils.check_juttle;
-var Juttle = require('juttle/lib/runtime').Juttle;
-var Redis = require('../lib');
-var test_utils = require('./redis-test-utils');
 
-var adapter = Redis({
-    address: 'localhost',
-    port: 6379
-}, Juttle);
+var test_utils = require('./redis-test-utils');
 
 function _sort_by_value(list) {
     return _.sortBy(list, 'value');
 }
 
-Juttle.adapters.register(adapter.name, adapter);
-
-describe('redis source', function() {
-    this.timeout(300000);
-
+juttle_test_utils.withAdapterAPI(function() {
     after(function() {
         return test_utils.clear_redis();
     });
@@ -59,7 +47,11 @@ describe('redis source', function() {
             var redis_command = 'HMSET ${id} a ${a} b ${b} c ${c} time ${time}';
             var base = 'emit -points %s | put redis_write_command = "%s" | write redis';
             var program = util.format(base, JSON.stringify(points), redis_command);
-            return check_juttle({program: program});
+            return check_juttle({program: program})
+                .then(function(result) {
+                    expect(result.errors).deep.equal([]);
+                    expect(result.warnings).deep.equal([]);
+                });
         });
 
         it('hmset read', function() {

@@ -1,14 +1,19 @@
 var Promise = require('bluebird');
-var _ = require('underscore');
-var util = require('util');
-var expect = require('chai').expect;
-var retry = require('bluebird-retry');
+var path = require('path');
 var Redis = require('redis-fast-driver');
 
-var test_client = Promise.promisifyAll(new Redis({
+var config = {
     host: '127.0.0.1',
-    port: 6379
-}));
+    port: 6379,
+    path: path.resolve(__dirname, '..')
+};
+
+var juttle_test_utils = require('juttle/test').utils;
+juttle_test_utils.configureAdapter({
+    redis: config
+});
+
+var test_client = Promise.promisifyAll(new Redis(config));
 
 var connect_promise = new Promise(function(resolve, reject) {
     test_client.on('ready', resolve);
