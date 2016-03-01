@@ -8,9 +8,9 @@ The Juttle Redis Adapter enables interaction with [Redis](http://redis.io/). It 
 
 Write a Hash into Redis at the key `my_hash` with values `a = 1`, `b = 2`, `c = 3`:
 ```juttle
-emit -limit 1
-| put a = 1, b = 2, c = 3, id = 'my_hash', redis_write_command = 'HMSET ${id} a ${a} b ${b} c ${c} time ${time}'
-| write redis
+emit -points [{ a: 1, b: 2, c: 3, id: 'my_hash' }]
+    | put redis_write_command = 'HMSET ${id} a ${a} b ${b} c ${c} time ${time}'
+    | write redis
 ```
 
 Retrieve the value stored at `my_hash:a` above as the point `{value: 1}`:
