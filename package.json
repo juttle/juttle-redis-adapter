@@ -20,7 +20,7 @@
     "redis-fast-driver": "^1.0.0",
     "underscore": "^1.8.3"
   },
-  "juttleAdapterAPI": "^0.5.0",
+  "juttleAdapterAPI": "^0.7.0",
   "devDependencies": {
     "chai": "^3.4.1",
     "istanbul": "^0.4.2",
