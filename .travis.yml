@@ -18,7 +18,7 @@ services:
     - redis-server
 
 before_script:
-    - npm install juttle@^0.5.x
+    - npm install juttle@^0.7.x
     - npm install -g eslint
 
 script:
